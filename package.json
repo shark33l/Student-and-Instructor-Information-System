@@ -1,0 +1,32 @@
+{
+  "name": "student-and-instructor-information-system",
+  "version": "1.0.0",
+  "description": "Group Project for AF Module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shark33l/Student-and-Instructor-Information-System.git"
+  },
+  "author": "Gryffindor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shark33l/Student-and-Instructor-Information-System.git/issues"
+  },
+  "homepage": "https://github.com/shark33l/Student-and-Instructor-Information-System.git#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.6.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
