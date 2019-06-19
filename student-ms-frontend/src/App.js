@@ -4,7 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 //Routes
 //NavBar
-import NavBar from './components/dashboardLayout/Navbar';
+//import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
 
 //Authentication Routes
