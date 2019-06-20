@@ -5,6 +5,14 @@ const passport = require('passport');
 //Import Controller
 const userController = require('../controller/UserController');
 
+//Import User Model
+const mongoose = require('../models/UserModel');
+const User = mongoose.model('UserModel');
+
+//Import JWT
+const jwt = require('jsonwebtoken');
+const jwtSecret = require('../config/jwtConfig').secret;
+
 router.get('/login', (req, res) => res.send('Login'));
 router.get('/register', (req, res) => res.send('Register'));
 
@@ -38,9 +46,33 @@ router.post('/register', (req, res) => {
 // Login User
 router.post('/login', (req, res, next) => {
 
-   passport.authenticate('local', {
-       successRedirect : '/dashboard',
-       failureRedirect : '/login',
+   passport.authenticate('local', {failureFlash: true},(err, user, info) => {
+       console.log("check")
+     if(err) {
+         console.log(err);
+         res.send({message : err.message})
+         console.log("check2")
+     } if (info){
+         console.log(info.message);
+         res.status(403).send({ message : info.message});
+       } else {
+         req.logIn(user, err => {
+             console.log(user);
+             User.findOne({ email : user.email })
+         .then( user => {
+             const token = jwt.sign({id: user.email}, jwtSecret);
+             res.status(200).send({
+                 auth: true,
+                 token: token,
+                 email: user.email,
+                 firstName: user.firstName,
+                 message: 'User found & logged in'
+             });
+         }).catch((err) => {
+             res.status(err.status).send({ message : "Error : " + err })
+             });
+         });
+       }
    })(req, res, next);
 
 });

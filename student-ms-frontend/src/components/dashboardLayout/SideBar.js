@@ -81,6 +81,12 @@ export default function SideBar(props) {
 
     function handleAuth(event) {
         setAuth(!auth);
+        fetch('http://localhost:5000/rest/api/users/logout')
+            .then(response =>{
+                return response.json()
+            }).then(json =>{
+                console.log(json)
+        })
         setAnchorEl(null);
     }
 

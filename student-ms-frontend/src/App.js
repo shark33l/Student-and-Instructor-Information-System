@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './App.css';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 //Routes
 //NavBar
-//import NavBar from './components/dashboardLayout/Navbar';
+import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
 
 //Authentication Routes
@@ -15,23 +15,36 @@ class App extends React.Component{
     constructor(){
         super();
         this.state={
-            auth: false
+            authentified: {
+                auth : false
+            }
         }
+    }
+
+    setAuth(auth){
+        this.setState({
+            authentified : auth
+        })
     }
 
 
     render() {
 
-        const { auth } = this.state;
+        const { authentified } = this.state;
 
         return (
             <BrowserRouter>
-                {!auth? <Fragment /> : <SideBar />}
+                {!authentified.auth? <Redirect to='/login'/> : <SideBar />}
                 <Route>
-                    <Switch>
-                        <Route path="/login" exact component={Login}/>
-                        <Route path="/register" exact component={Register}/>
-                    </Switch>
+                    {authentified.auth?
+                        <Redirect to='/'/>
+                        :
+                        <Switch>
+                            <Route path="/login" exact
+                                   render={(props) => <Login {...props} setAuth = {this.setAuth.bind(this)} />}/>
+                            <Route path="/register" exact component={Register}/>
+                        </Switch>
+                    }
                 </Route>
             </BrowserRouter>
         );
