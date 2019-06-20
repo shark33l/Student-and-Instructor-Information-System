@@ -6,6 +6,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 //NavBar
 import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
+import Notice from './components/dashboardLayout/Notice';
 
 //Authentication Routes
 import Login from './components/auth/Login';
@@ -15,7 +16,7 @@ class App extends React.Component{
     constructor(){
         super();
         this.state={
-            auth: false
+            auth: true
         }
     }
 
@@ -25,7 +26,11 @@ class App extends React.Component{
         const { auth } = this.state;
 
         return (
+
+
             <BrowserRouter>
+
+
                 {!auth? <Fragment /> : <SideBar />}
                 <Route>
                     <Switch>
@@ -33,6 +38,7 @@ class App extends React.Component{
                         <Route path="/register" exact component={Register}/>
                     </Switch>
                 </Route>
+
             </BrowserRouter>
         );
     }

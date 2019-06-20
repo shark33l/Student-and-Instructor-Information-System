@@ -1,13 +1,15 @@
 const express = require('express');
+const routes = express.Router();
 
-const app = express();
 
 //Require Routes
 const index = require('./index');
-const users = require('./users')
+const users = require('./users');
+const notice = require('./noticeRouter');
 
 //Routes
-app.use('/', index);
-app.use('/users', users);
+routes.use('/', index);
+routes.use('/users', users);
+routes.use('/notice',notice);
 
-module.exports = app;
+module.exports = routes;
