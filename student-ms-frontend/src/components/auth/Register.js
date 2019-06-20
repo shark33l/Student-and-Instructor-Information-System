@@ -42,9 +42,47 @@ class Register extends Component{
         registerDetails[name] = value;
         this.setState({registerDetails});
 
-        console.log(registerDetails);
+    }
+
+    //Handle Register Button
+    handleRegister = e => {
+        e.preventDefault();
+
+        const registerPostUrl = "http://localhost:5000/rest/api/users/register";
+        const registerDetails = this.state.registerDetails;
+
+        //Student User Level is 3
+        const registerData = {
+            firstName : registerDetails.firstName,
+            lastName : registerDetails.lastName,
+            email : registerDetails.email,
+            userLevel : 3,
+            password : registerDetails.password,
+            confirmPassword : registerDetails.confirmPassword
+        }
+
+        console.log(registerData);
+
+        //Post Details
+        fetch(registerPostUrl, {
+            method : 'POST',
+            body : JSON.stringify(registerData),
+            headers: {'Content-Type' : 'application/json'}
+        }).then(response => {
+            return response.json()
+        }).then(json => {
+            if(json.user){
+                console.log("User already Exists")
+            }
+            if(json.created){
+                console.log("User Created")
+            }
+            console.log(json)
+        })
 
     }
+
+    //Handle Validation
 
     //Handle Password Visibility
     handleClickShowPassword = e => {
@@ -137,7 +175,7 @@ class Register extends Component{
                                 }
                             />
                         </FormControl>
-                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth>
+                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth onClick={this.handleRegister}>
                             Register
                         </Button>
                         <Typography style={{marginTop: 15}}>
