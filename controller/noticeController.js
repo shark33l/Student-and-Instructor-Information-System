@@ -6,10 +6,10 @@ const noticeController = function () {
     this.insert = (data) => {
         return new Promise((resolve, reject) => {
             const notice = new NoticeModel({
-                Title:data.Title,
-                Type:data.Type,
-                Body:data.Body,
-                Date: data.Date
+                    Title:data.Title,
+                    Type:data.Type,
+                    Body:data.Body,
+                    Date: data.Date
             });
             notice.save().then(() => {
                 resolve({status: 200, message: "Added new Notice successfully"});

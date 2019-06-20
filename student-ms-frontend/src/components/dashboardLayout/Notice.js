@@ -10,7 +10,7 @@ class Notice extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:5000/notice/get-notices',{
+        fetch('http://localhost:5000/rest/api/notice/get-notices',{
             method: 'GET',
             headers:{'Content-Type':'application/json'}
         }).then(response=>{

@@ -32,6 +32,7 @@ class App extends React.Component{
 
 
                 {!auth? <Fragment /> : <SideBar />}
+
                 <Route>
                     <Switch>
                         <Route path="/login" exact component={Login}/>
