@@ -1,7 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -35,15 +33,6 @@ app.use(passport.session());
 
 //Require Routes
 const routes = require('./routes/routes');
-app.use(bodyParser.json());
-
-app.use(cors());
-app.use((req,res,next)=>{
-    res.setHeader('Access-Control-Allow-Origin','*');
-    res.setHeader('Access-Control-Allow-Methods','GET, POST, OPTIONS, PUT,PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Credentials',true);
-    next();
-})
 
 //Routes
 app.use('/rest/api', routes);
