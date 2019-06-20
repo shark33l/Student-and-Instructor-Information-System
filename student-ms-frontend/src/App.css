@@ -23,6 +23,52 @@
   color: #61dafb;
 }
 
+.container {
+
+  text-align: center;
+  margin-top: 50px;
+}
+
+.nav-link {
+  text-align: center;
+  font-family: "Arial Black";
+  font-size: large;
+}
+
+.button_primary {
+  background-color: mediumblue;
+  font-size: x-large;
+  text-decoration-color: aliceblue;
+  color: aliceblue;
+
+}
+
+.table-striped {
+  text-align: center;
+
+}
+
+.header {
+  text-align: left;
+  font-family: Arial;
+  color: mediumblue;
+
+}
+
+.typo {
+
+  font-family: "Times New Roman";
+  text-align: left;
+}
+
+.button {
+  margin-right: 600px;
+}
+
+.main {
+  text-align: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
