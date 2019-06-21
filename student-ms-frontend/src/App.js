@@ -6,10 +6,13 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 //NavBar
 import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
+import Notice from './components/dashboardLayout/Notice';
 
 //Authentication Routes
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+
 
 class App extends React.Component{
     constructor(){
@@ -33,9 +36,24 @@ class App extends React.Component{
         const { authentified } = this.state;
 
         return (
+
+
             <BrowserRouter>
-                {!authentified.auth? <Redirect to='/login'/> : <SideBar />}
+                //If Authentified, allow new Routes, or redirect to Login
+                {!authentified.auth? <Redirect to='/login'/>
+                : 
+                  <Route>
+                    <SideBar />}
+                    <Switch>
+                        <Route path="/login" exact component={Login}/>
+                        <Route path="/register" exact component={Register}/>
+                        <Route path="/assignment" component={Assignments}/>
+                    </Switch>
+                  </Route>
+                }
+          
                 <Route>
+                  //If User already logged in, redirect to Dashboard
                     {authentified.auth?
                         <Redirect to='/'/>
                         :
