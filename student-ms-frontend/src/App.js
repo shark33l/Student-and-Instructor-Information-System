@@ -12,6 +12,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import studentHome from "./components/students/studentHome";
 import studentDashboard from "./components/students/studentDashboard";
+import studentSettings from "./components/students/studentSettings";
 
 class App extends React.Component{
     constructor(){
@@ -35,7 +36,7 @@ class App extends React.Component{
                         <Route path="/register" exact component={Register}/>
                         <Route path="/studentDashboard" exact component={studentDashboard}/>
                         <Route path="/studentHome" exact component={studentHome}/>
-
+                        <Route path="/studentSettings" exact component={studentSettings}/>
 
                     </Switch>
                 </Route>

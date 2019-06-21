@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62edc223-ee4d-497a-82b1-3fd5fcd1c97c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student-ms-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardNew.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardNew.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/images/courses.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/images/studentSettings.jpg" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/student-ms-frontend/node_modules/" />
@@ -21,36 +25,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.js">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="407">
+              <caret line="56" column="73" lean-forward="true" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="e#149#206#0" expanded="true" />
-                <element signature="e#292#336#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentCourses.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="61" column="2" lean-forward="true" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-205">
-              <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+            <state relative-caret-position="273">
+              <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/auth/Register.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1477">
+              <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#109#312#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="64" column="157" selection-start-line="64" selection-start-column="157" selection-end-line="64" selection-end-column="157" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -59,19 +71,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="64" column="21" lean-forward="true" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="533">
+              <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -99,18 +102,20 @@
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.jsx" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardNew.jsx" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.jsx" />
-        <option value="$PROJECT_DIR$/student-ms-frontend/src/App.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentRegisteredCourses.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentNotifications.js" />
-        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentCourses.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentAssignmentsView.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentExamsView.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/App.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js" />
-        <option value="$PROJECT_DIR$/student-ms-frontend/src/App.css" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/App.css" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -207,23 +212,22 @@
       <option name="presentableId" value="Default" />
       <updated>1560964105696</updated>
       <workItem from="1560964130476" duration="6590000" />
-      <workItem from="1561002702552" duration="29980000" />
+      <workItem from="1561002702552" duration="41409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36570000" />
+    <option name="totallyTimeSpent" value="47999000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1552" height="840" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32977098" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.061255742" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -263,43 +267,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/courses.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardff.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardNew.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1009">
-          <caret line="147" column="36" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/node_modules/react-dom/cjs/react-dom.development.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361726">
           <caret line="21278" selection-start-line="21278" selection-end-line="21278" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/auth/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -309,25 +280,23 @@
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentNotifications.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.js">
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardNew.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="560">
+          <caret line="147" column="36" selection-start-line="147" selection-start-column="36" selection-end-line="147" selection-end-column="36" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
-            <element signature="e#149#206#0" expanded="true" />
-            <element signature="e#292#336#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.css">
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardff.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="64" column="21" lean-forward="true" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        <state relative-caret-position="408">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -341,23 +310,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js">
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentExamsView.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="1037">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentAssignmentsView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="4" lean-forward="true" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#149#206#0" expanded="true" />
+            <element signature="e#315#359#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-205">
-          <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+        <state relative-caret-position="407">
+          <caret line="56" column="73" lean-forward="true" selection-start-line="56" selection-start-column="73" selection-end-line="56" selection-end-column="73" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/Hogwarts-Logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/home.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/mycourses.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/notifications.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/settings.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/images/studentSettings.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/auth/Register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1477">
+          <caret line="138" column="38" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#109#312#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentSettings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="64" column="157" selection-start-line="64" selection-start-column="157" selection-end-line="64" selection-end-column="157" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
         </state>
       </provider>
     </entry>

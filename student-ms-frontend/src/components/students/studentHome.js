@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
-import {Paper, Typography} from "@material-ui/core";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import {Avatar, Typography} from "@material-ui/core";
+import home from '../../images/home.jpg';
 
-const useStyles = makeStyles(theme => ({
-    button: {
-        margin: theme.spacing(1),
-    },
-    input: {
-        display: 'none',
-    },
-}));
+// import makeStyles from "@material-ui/core/styles/makeStyles";
+//
+// const useStyles = makeStyles(theme => ({
+//     button: {
+//         margin: theme.spacing(1),
+//     },
+//     input: {
+//         display: 'none',
+//     },
+// }));
 
 class StudentHome extends Component {
     constructor() {
@@ -30,6 +32,10 @@ class StudentHome extends Component {
                     <h1>Timeline</h1>
                 </div>
 
+                <div className="iconImage">
+                    <img src={home} alt='Home'style={{height:450, width:900}}/>
+                </div>
+
                 <div className="main">
                     <div className="typo">
                     <Typography variant="h5">
@@ -39,7 +45,6 @@ class StudentHome extends Component {
                     <div className="button">
                     <button type="submit" className="button_primary" style={{marginRight:'600px', marginTop:'-100px'}} onClick={()=>{this.view()}}> View </button>
                     </div>
-
 
 
                     <div className="typo">

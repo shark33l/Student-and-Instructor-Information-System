@@ -27,6 +27,7 @@
 
   text-align: center;
   margin-top: 50px;
+
 }
 
 .nav-link {
@@ -48,8 +49,12 @@
 
 }
 
+.iconImage {
+
+}
+
 .header {
-  text-align: left;
+  text-align: center;
   font-family: Arial;
   color: mediumblue;
 
@@ -58,11 +63,11 @@
 .typo {
 
   font-family: "Times New Roman";
-  text-align: left;
+
 }
 
 .button {
-  margin-right: 600px;
+  text-align: right;
 }
 
 .main {

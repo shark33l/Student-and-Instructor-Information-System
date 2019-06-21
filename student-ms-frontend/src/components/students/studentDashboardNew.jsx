@@ -17,7 +17,7 @@ const images = [
 
     },
     {
-        url: '/images/courses.jpg',
+        url: '/images/studentSettings.jpg',
         title: 'Courses',
         width: '30%',
     },
@@ -142,7 +142,7 @@ export default function ButtonBases() {
                 color="inherit"
                 className={classes.imageTitle}
                 onClick={<Link to="/studentHome">Home</Link>}
-                
+
             >
               {image.title}
                 <span className={classes.imageMarked} />

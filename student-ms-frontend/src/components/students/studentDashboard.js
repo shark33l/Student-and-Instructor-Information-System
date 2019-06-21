@@ -7,6 +7,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
 import Table from "@material-ui/core/Table";
+import studentSettings from "./studentSettings";
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -42,7 +43,7 @@ class StudentDashboard extends Component {
                                     <Link to="/" className="nav-link">Notifications</Link>
                                 </StyledTableCell>
                                 <StyledTableCell>
-                                    <Link to="/" className="nav-link">Settings</Link>
+                                    <Link to="/studentSettings" className="nav-link">Settings</Link>
                                 </StyledTableCell>
 
                             </TableRow>
@@ -55,7 +56,7 @@ class StudentDashboard extends Component {
                     <Route path="/login" exact component={Login}/>
                     {/*<Route path="/" exact component={studentHome}/>*/}
                     {/*<Route path="/" exact component={studentHome}/>*/}
-                    {/*<Route path="/" exact component={studentHome}/>*/}
+                    <Route path="/studentSettings" exact component={studentSettings}/>
 
                 </div>
             </Router>
