@@ -82,3 +82,15 @@
     transform: rotate(360deg);
   }
 }
+
+.container{
+  text-align: center ;
+  border : 5px WindowFrame ;
+
+
+}
+
+.noticePage {
+  padding-left: 10%;
+  border-style:groove ;
+}

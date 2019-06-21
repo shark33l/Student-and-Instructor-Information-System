@@ -79,8 +79,11 @@ class Login extends Component{
                         <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth>
                             Login
                         </Button>
-                        <Typography style={{marginTop: 30, marginBottom: 15}}>
+                        <Typography style={{marginTop: 30}}>
                             Are you a Student and in need of an account? <Link to='/register'>Register</Link><br/>
+                        </Typography>
+                        <hr />
+                        <Typography style={{marginBottom: 15}}>
                             Having trouble with your account? <Link to='/register'>Forgot Password</Link>
                         </Typography>
                         <FormHelperText>
