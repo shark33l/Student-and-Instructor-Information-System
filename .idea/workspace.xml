@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 
+
     <list default="true" id="62edc223-ee4d-497a-82b1-3fd5fcd1c97c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/App.css" afterDir="false" />
@@ -1484,6 +1485,13 @@
       <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student-ms-frontend/src/components/dashboardLayout/Notice.js" beforeDir="false" afterPath="$PROJECT_DIR$/student-ms-frontend/src/components/dashboardLayout/Notice.js" afterDir="false" />
     </list>
+
+    <list default="true" id="00b14cea-65eb-43ac-9598-28d9c5f3a5d1" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/node_modules/" />
+    <ignored path="$PROJECT_DIR$/student-ms-frontend/node_modules/" />
+
+   
+
     <ignored path="$PROJECT_DIR$/node_modules/" />
 
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -1499,6 +1507,7 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
 
+
         <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboard.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="407">
@@ -1512,6 +1521,19 @@
             <state relative-caret-position="357">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
 
+
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#141#198#0" expanded="true" />
+                <element signature="e#284#328#0" expanded="true" />
+              </folding>
+
+        
+
             </state>
           </provider>
         </entry>
@@ -1524,6 +1546,20 @@
               <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
 
       <file pinned="false" current-in-tab="false">
+
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/AssignmentsExams.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/CreateAssignment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="104" column="14" lean-forward="true" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
@@ -1610,11 +1646,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
               <caret line="25" selection-start-line="25" selection-end-line="25" />
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+
+        <entry file="file://$PROJECT_DIR$/../../3rd Year/Application Frameworks/Try1/SLIIT_AF_2018_Past_Paper-master/sliit-react-base/sliit-react-base/public/components/course/insert/insert.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+
         <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/dashboardLayout/Notice.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
@@ -1622,11 +1667,18 @@
 
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+
+
+
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/Exams.js">
+          <provider selected="true" editor-type-id="text-editor" />
 
 
       <file pinned="false" current-in-tab="true">
@@ -1640,6 +1692,7 @@
               </folding>
             </state>
           </provider>
+
         </entry>
       </file>
 
@@ -1662,6 +1715,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+
 
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/auth/Register.js" />
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/students/studentHome.jsx" />
@@ -1686,6 +1740,13 @@
     <option name="width" value="1940" />
     <option name="height" value="1050" />
 
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/AssignmentsExams.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/Exams.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/App.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/Assignments.js" />
+        <option value="$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/CreateAssignment.js" />
+
+
         <option value="$PROJECT_DIR$/student-ms-frontend/src/components/dashboardLayout/SideBar.js" />
         <option value="$PROJECT_DIR$/controller/NoticeController.js" />
         <option value="$PROJECT_DIR$/routes/NoticeRouter.js" />
@@ -1707,10 +1768,17 @@
         <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
         <option value="$PROJECT_DIR$/.idea/modules.xml" />
+
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="790" />
+    <option name="height" value="735" />
+
     <option name="x" value="302" />
     <option name="y" value="10" />
     <option name="width" value="908" />
@@ -1764,6 +1832,7 @@
               <item name="student-ms-frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+
               <item name="students" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1772,6 +1841,9 @@
               <item name="student-ms-frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
+
+
+
 
               <item name="dashboardLayout" type="462c0819:PsiDirectoryNode" />
 
@@ -1784,11 +1856,18 @@
   </component>
   <component name="PropertiesComponent">
 
+
     
+
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../3rd Year/Application Frameworks/Try1/SLIIT_AF_2018_Past_Paper-master/sliit-react-base/sliit-react-base/public/components/course/insert/insert.jsx" />
+
+
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
 
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -1811,6 +1890,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
 
+
       <changelist id="62edc223-ee4d-497a-82b1-3fd5fcd1c97c" name="Default Changelist" comment="" />
       <created>1560964105696</created>
       <option name="number" value="Default" />
@@ -1818,6 +1898,17 @@
       <updated>1560964105696</updated>
       <workItem from="1560964130476" duration="6590000" />
       <workItem from="1561002702552" duration="41409000" />
+
+      <changelist id="00b14cea-65eb-43ac-9598-28d9c5f3a5d1" name="Default Changelist" comment="" />
+      <created>1560952137340</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560952137340</updated>
+      <workItem from="1560952140754" duration="1116000" />
+      <workItem from="1560962728682" duration="2654000" />
+      <workItem from="1560989768213" duration="6108000" />
+      <workItem from="1561002021212" duration="22183000" />
+
 
       <changelist id="fa395807-c5a9-40bc-a04a-b9503e872c38" name="Default Changelist" comment="" />
       <created>1560935043826</created>
@@ -1835,6 +1926,7 @@
   </component>
   <component name="TimeTrackingManager">
 
+
     <option name="totallyTimeSpent" value="47999000" />
   </component>
   <component name="ToolWindowManager">
@@ -1842,11 +1934,18 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24932976" />
 
+    <option name="totallyTimeSpent" value="32061000" />
+
+
     <option name="totallyTimeSpent" value="32365000" />
+
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
+
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20386904" />
+
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20238096" />
 
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1858,6 +1957,9 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.061255742" />
 
       <window_info anchor="bottom" id="Find" order="1" />
+
+      <window_info anchor="bottom" id="Run" order="2" weight="0.13435374" />
+
       <window_info anchor="bottom" id="Run" order="2" weight="0.3535188" />
 
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -1869,12 +1971,16 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
 
       <window_info anchor="bottom" id="Terminal" order="10" />
+
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
 
+      
+
       <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3535188" />
+
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1885,6 +1991,22 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/AssignmentsExams.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/Exams.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#141#198#0" expanded="true" />
+            <element signature="e#284#328#0" expanded="true" />
+
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/auth/Login.js">
       <provider selected="true" editor-type-id="text-editor">
 
@@ -1952,10 +2074,12 @@
 
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+
           </folding>
         </state>
       </provider>
     </entry>
+
 
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentDashboardff.jsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -1964,9 +2088,15 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
 
+    <entry file="file://$PROJECT_DIR$/../../3rd Year/Application Frameworks/Try1/SLIIT_AF_2018_Past_Paper-master/sliit-react-base/sliit-react-base/public/components/course/insert/insert.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/dashboardLayout/Navbar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
+
           <folding>
             <element signature="e#0#41#0" expanded="true" />
 
@@ -1975,12 +2105,21 @@
       </provider>
     </entry>
 
+
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/students/studentCourses.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1037">
           <caret line="61" column="2" lean-forward="true" selection-start-line="61" selection-start-column="2" selection-end-line="61" selection-end-column="2" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+
+    <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/components/assignmentsAndExams/CreateAssignment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="104" column="14" lean-forward="true" selection-start-line="104" selection-start-column="14" selection-end-line="104" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+
 
     <entry file="file://$PROJECT_DIR$/student-ms-frontend/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -2186,6 +2325,7 @@
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#201#260#0" expanded="true" />
+
           </folding>
 
         </state>
