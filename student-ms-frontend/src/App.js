@@ -11,6 +11,8 @@ import Notice from './components/dashboardLayout/Notice';
 //Authentication Routes
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+
 
 class App extends React.Component{
     constructor(){
@@ -37,6 +39,7 @@ class App extends React.Component{
                     <Switch>
                         <Route path="/login" exact component={Login}/>
                         <Route path="/register" exact component={Register}/>
+                        <Route path="/assignment" component={Assignments}/>
                     </Switch>
                 </Route>
 
