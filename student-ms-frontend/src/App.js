@@ -14,6 +14,8 @@ import Register from './components/auth/Register';
 import studentHome from "./components/students/studentHome";
 import studentDashboard from "./components/students/studentDashboard";
 import studentSettings from "./components/students/studentSettings";
+import assignmentUpload from "./components/students/assignmentUpload";
+import studentEnrollment from "./components/students/studentEnrollment";
 
 class App extends React.Component{
     constructor(){
@@ -43,6 +45,8 @@ class App extends React.Component{
                         <Route path="/studentDashboard" exact component={studentDashboard}/>
                         <Route path="/studentHome" exact component={studentHome}/>
                         <Route path="/studentSettings" exact component={studentSettings}/>
+                        <Route path="/assignmentUpload" exact component={assignmentUpload}/>
+                        <Route path="/studentEnrollment" exact component={studentEnrollment}/>
 
                     </Switch>
                 </Route>
