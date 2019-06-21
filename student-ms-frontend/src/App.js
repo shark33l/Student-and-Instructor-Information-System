@@ -4,8 +4,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 //Routes
 //NavBar
-import NavBar from './components/dashboardLayout/Navbar';
+//import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
+import Notice from './components/dashboardLayout/Notice';
 
 //Authentication Routes
 import Login from './components/auth/Login';
@@ -27,8 +28,13 @@ class App extends React.Component{
         const { auth } = this.state;
 
         return (
+
+
             <BrowserRouter>
+
+
                 {!auth? <Fragment /> : <SideBar />}
+
                 <Route>
                     <Switch>
                         <Route path="/login" exact component={Login}/>
@@ -36,6 +42,7 @@ class App extends React.Component{
                         <Route path="/assignment" component={Assignments}/>
                     </Switch>
                 </Route>
+
             </BrowserRouter>
         );
     }
