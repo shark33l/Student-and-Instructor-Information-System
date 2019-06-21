@@ -12,6 +12,8 @@ import Notice from './components/dashboardLayout/Notice';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
+import editAssignment from "./components/assignmentsAndExams/editAssignment";
 
 
 class App extends React.Component{
@@ -40,6 +42,9 @@ class App extends React.Component{
                         <Route path="/login" exact component={Login}/>
                         <Route path="/register" exact component={Register}/>
                         <Route path="/assignment" component={Assignments}/>
+                        <Route path="/viewAssignments" component={viewAssignments}/>
+                        <Route path="/editAssignments" component={editAssignment}/>
+
                     </Switch>
                 </Route>
 
