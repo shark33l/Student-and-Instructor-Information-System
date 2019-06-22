@@ -58,6 +58,8 @@ class Login extends Component{
         }).then(json => {
             if(json.auth){
                 console.log("User Logged in")
+                window.localStorage.setItem("jwt", json.token);
+                window.localStorage.setItem("email", json.email);
                 this.props.setAuth(json)
                 this.props.history.push('/')
             } else {
