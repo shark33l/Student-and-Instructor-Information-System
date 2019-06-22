@@ -14,6 +14,7 @@ import {
     Button,
     Typography, Avatar, FormHelperText
 } from '@material-ui/core';
+import axios from "axios";
 
 class StudentEnrollment extends Component{
 
@@ -22,11 +23,23 @@ class StudentEnrollment extends Component{
         this.state = {
             studentEnrollmentDetails : {
                 studentID: '',
-                courseID: ''
+                courseID: '',
+                courses: []
             }
 
         }
     }
+
+    componentDidMount() {
+        axios.get('').then(
+            data => {
+                this.setState ({
+                    courses: data.data
+                })
+            }
+        )
+    }
+
 
     //Handle Form Change
     handleFormChange = e =>{
@@ -38,29 +51,31 @@ class StudentEnrollment extends Component{
     }
 
     //Handle Enroll Button
-    handleEnrollment = e => {
+    handleStEnrollment = e => {
         //e.preventDefault();
 
-        const enrollmentPostUrl = "http://localhost:5000/rest/api/studentEnrollment/enroll"; //studentEnrollment database table
+        const studentEnrollmentPostUrl = "http://localhost:5000/rest/api/StudentEnrollmentRouter";
         const studentEnrollmentDetails = this.state.studentEnrollmentDetails;
 
-        const enrollmentData = {
-            studentID : studentEnrollmentDetails.firstName,
-            courseID : studentEnrollmentDetails.lastName
+        
+        const studentEnrollmentData = {
+            studentID: studentEnrollmentDetails.studentID,
+            courseID: studentEnrollmentDetails.courseID
+
         }
 
-        console.log(enrollmentData);
+        console.log(studentEnrollmentData);
 
         //Post Details
-        fetch(enrollmentPostUrl, {
+        fetch(studentEnrollmentPostUrl, {
             method : 'POST',
-            body : JSON.stringify(enrollmentData),
+            body : JSON.stringify(studentEnrollmentData),
             headers: {'Content-Type' : 'application/json'}
         }).then(response => {
             return response.json()
         }).then(json => {
             if(json.user){
-                console.log("Student ID already Exists")
+                console.log("Course ID already Exists")
             }
             if(json.created){
                 console.log("Student Enrolled")
@@ -68,8 +83,8 @@ class StudentEnrollment extends Component{
             console.log(json)
         })
 
-
     }
+
 
 
     render(){
@@ -105,7 +120,7 @@ class StudentEnrollment extends Component{
                             fullWidth
                         />
 
-                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth onClick={this.handleEnrollment()}>
+                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth onClick={this.handleStEnrollment()}>
                             Enroll
                         </Button>
 

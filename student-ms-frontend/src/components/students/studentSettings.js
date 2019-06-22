@@ -34,6 +34,42 @@ class StudentSettings extends Component{
 
     }
 
+    //Update password button
+    handleUpdatePassword = e => {
+        e.preventDefault();
+
+        const updatePasswordPostUrl = "http://localhost:5000/rest/api/updatePassword";
+        const updatePasswordDetails = this.state.updatePasswordDetails;
+
+
+        const updatePasswordData = {
+
+            password : updatePasswordDetails.password,
+            newPassword: updatePasswordDetails.newPassword,
+            confirmPassword : updatePasswordDetails.confirmPassword
+        }
+
+        console.log(updatePasswordData);
+
+        //Post Details
+        fetch(updatePasswordPostUrl, {
+            method : 'POST',
+            body : JSON.stringify(updatePasswordData),
+            headers: {'Content-Type' : 'application/json'}
+        }).then(response => {
+            return response.json()
+        }).then(json => {
+            if(json.user){
+                console.log("Password already Exists")
+            }
+            if(json.created){
+                console.log("Password updated")
+            }
+            console.log(json)
+        })
+
+    }
+
     //Handle Password Visibility
     handleClickShowPassword = e => {
         this.setState({
@@ -120,7 +156,7 @@ class StudentSettings extends Component{
                                 }
                             />
                         </FormControl>
-                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth>
+                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth onClick={this.handleUpdatePassword}>
                             Update Password
                         </Button>
 
