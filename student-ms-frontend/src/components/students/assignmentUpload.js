@@ -204,6 +204,7 @@ export default class AssignmentUpload extends Component {
 
         this.state = {
             studentID: '',
+            courseID: '',
             assignmentTitle: '',
             assignmentDescription: '',
             assignmentDueDate: '',
@@ -232,6 +233,12 @@ export default class AssignmentUpload extends Component {
         });
     }
 
+    onChangeCourseID(e){
+        this.setState({
+            courseID: e.target.value
+        });
+    }
+
     // onSaveAssignmentFile(files) {
     //     this.setState({
     //         files: files,
@@ -244,16 +251,18 @@ export default class AssignmentUpload extends Component {
 
         const asUpload = {
             studentID:this.state.studentID,
+            courseID:this.state.courseID,
             files:this.state.files
         };
 
-        axios.post('http://localhost:3000/uploadAssignment', asUpload).then(
+        axios.post('http://localhost:5000/rest/api/StudentAssignmentUploadRouter', asUpload).then(
             res => console.log(res.data)
         );
 
 
         this.setState({
             studentID: '',
+            courseID: '',
             files: ''
 
        })
@@ -301,6 +310,17 @@ export default class AssignmentUpload extends Component {
                             className="form-control"
                             value={this.state.assignmentDueDate}
                             onChange={this.onChangeStudentID}
+
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Course ID: </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={this.state.assignmentDueDate}
+                            onChange={this.onChangeCourseID}
 
                         />
                     </div>
