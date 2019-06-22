@@ -5,10 +5,21 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 //Routes
 //NavBar
 import SideBar from './components/dashboardLayout/SideBar';
+import Notice from './components/dashboardLayout/Notice';
 
 //Authentication Routes
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+
+//Student Routes
+import studentHome from "./components/students/studentHome";
+import studentDashboard from "./components/students/studentDashboard";
+import studentSettings from "./components/students/studentSettings";
+
+//Assignment Routes
+import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+
+
 
 class App extends React.Component{
     constructor(){
@@ -73,7 +84,7 @@ class App extends React.Component{
                     })
                 }
             })
-        console.log(accessString);
+        console.log(this.state);
 
     }
 
@@ -125,14 +136,32 @@ class App extends React.Component{
         const { authentified } = this.state;
 
         return (
+
+
             <BrowserRouter>
                 {!authentified.auth?
                     <Redirect
                         to='/login'/>
-                : <SideBar
+                : <Route>
+                    <SideBar
                         removeAuth = {this.removeAuth.bind(this)}
                         userDetails = {this.state.userDetails}
-                        authentified = {this.state.authentified}/>}
+                        authentified = {authentified}/>
+                    <Switch>
+
+                        {/*Student*/}
+                        <Route path="/studentDashboard" exact component={studentDashboard}/>
+                        <Route path="/studentHome" exact component={studentHome}/>
+                        <Route path="/studentSettings" exact component={studentSettings}/>
+
+                        {/*Assignment*/}
+                        <Route path="/assignment" component={Assignments}/>
+
+                        {/*Lecturer*/}
+
+                    </Switch>
+                  </Route>
+                }
                 <Route>
                     {authentified.auth?
                         <Redirect to='/'/>

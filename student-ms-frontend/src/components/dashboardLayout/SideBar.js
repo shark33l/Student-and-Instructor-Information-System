@@ -27,6 +27,7 @@ import {
 import {
     Dashboard,
     LibraryBooks as Courses,
+    Poll as Exams,
     School as Students,
     Person as Lecturers,
     Info as AboutIcon,
@@ -98,6 +99,8 @@ export default function SideBar(props) {
 
     useEffect(() => {
 
+        console.log(props)
+
         if(props.authentified.auth){
 
             setUserName(props.userDetails.firstName + " " + props.userDetails.lastName);
@@ -153,10 +156,11 @@ export default function SideBar(props) {
             <div className={classes.toolbar} />
             <Divider />
             <List>
-                {['Dashboard', 'Courses', 'Lecturers', 'Students'].map((text, index) => (
+                {['Dashboard', 'Courses', 'Exams', 'Lecturers', 'Students'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>{ text === 'Dashboard' ? <Dashboard /> :
                                         text === 'Courses' ? <Courses /> :
+                                        text === 'Exams' ? <Exams /> :
                                         text === 'Lecturers' ? <Lecturers/> :
                                         <Students />}
                         </ListItemIcon>
