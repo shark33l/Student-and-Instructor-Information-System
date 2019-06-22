@@ -4,7 +4,6 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 //Routes
 //NavBar
-import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
 import Notice from './components/dashboardLayout/Notice';
 
@@ -12,12 +11,14 @@ import Notice from './components/dashboardLayout/Notice';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
+//Student Routes
 import studentHome from "./components/students/studentHome";
 import studentDashboard from "./components/students/studentDashboard";
 import studentSettings from "./components/students/studentSettings";
 import assignmentUpload from "./components/students/assignmentUpload";
 import studentEnrollment from "./components/students/studentEnrollment";
 
+//Assignment Routes
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
 import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
 import editAssignment from "./components/assignmentsAndExams/editAssignment";
@@ -33,14 +34,107 @@ class App extends React.Component{
         this.state={
             authentified: {
                 auth : false
-            }
+            },
+            accessString: '',
+            userDetails : []
         }
     }
 
     setAuth(auth){
         this.setState({
-            authentified : auth
+            authentified : {
+                auth : true
+            },
+            accessString : auth.token,
+            userDetails : {
+                firstName : auth.firstName,
+                lastName : auth.lastName,
+                email : auth.email,
+                userLevel : auth.userLevel
+            }
+        }, console.log(this.state))
+    }
+
+    // Reset Default
+    removeAuth(){
+        this.setState(({
+            authentified : {
+                auth : false
+            },
+            accessString : '',
+            userDetails : []
+        }))
+    }
+
+    componentWillMount() {
+
+        let accessString = localStorage.getItem("jwt");
+        let email = localStorage.getItem("email");
+
+        const findUserUrl = "http://localhost:5000/rest/api/users/finduser";
+
+        fetch(findUserUrl, {
+            params : { email : email },
+            headers : { Authorization : 'JWT ' + accessString}
         })
+            .then(response =>{
+                return response.json()
+            })
+            .then(json => {
+                if(json.auth){
+                    this.setState({
+                        accessString : accessString,
+                        userDetails : json,
+                        authentified : {
+                            auth : true
+                        }
+                    })
+                }
+            })
+        console.log(this.state);
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+
+        // let accessString = localStorage.getItem("jwt");
+        // let email = localStorage.getItem("email");
+        //
+        // const findUserUrl = "http://localhost:5000/rest/api/users/finduser";
+        //
+        // fetch(findUserUrl, {
+        //     params : { email : email },
+        //     headers : { Authorization : 'JWT ' + accessString}
+        // })
+        //     .then(response =>{
+        //         return response.json()
+        //     })
+        //     .then(json => {
+        //         if(json.auth){
+        //             this.setState({
+        //                 userDetails : json,
+        //                 authentified : {
+        //                     auth : true
+        //                 }
+        //             })
+        //         }
+        //     })
+
+        //console.log(prevState);
+
+        // if(this.state.authentified.auth){
+        //
+        //     if(this.state.authentified.auth !== prevState.authentified.auth){
+        //
+        //         this.setState({
+        //             accessString : accessString
+        //         })
+        //         console.log(accessString);
+        //
+        //     }
+        //
+        // }
+
     }
 
 
@@ -52,38 +146,38 @@ class App extends React.Component{
 
 
             <BrowserRouter>
-                //If Authentified, allow new Routes, or redirect to Login
-                {!authentified.auth? <Redirect to='/login'/>
-                : 
-                  <Route>
-                    <SideBar />}
+                {!authentified.auth?
+                    <Redirect
+                        to='/login'/>
+                : <Route>
+                    <SideBar
+                        removeAuth = {this.removeAuth.bind(this)}
+                        userDetails = {this.state.userDetails}
+                        authentified = {authentified}/>
                     <Switch>
-                        <Route path="/login" exact component={Login}/>
-                        <Route path="/register" exact component={Register}/>
 
+                        {/*Student*/}
                         <Route path="/studentDashboard" exact component={studentDashboard}/>
                         <Route path="/studentHome" exact component={studentHome}/>
                         <Route path="/studentSettings" exact component={studentSettings}/>
                         <Route path="/assignmentUpload" exact component={assignmentUpload}/>
                         <Route path="/studentEnrollment" exact component={studentEnrollment}/>
 
-
+                        {/*Assignment*/}
                         <Route path="/assignment" component={Assignments}/>
-
                         <Route path="/viewAssignments" component={viewAssignments}/>
                         <Route path="/editAssignments" component={editAssignment}/>
                         <Route path="/exam" component={createExams}/>
                         <Route path = "/editExams" component={editExams}/>
                         <Route path = "/viewExams" component={viewExams}/>
-
+          
+                        {/*Lecturer*/}
 
 
                     </Switch>
                   </Route>
                 }
-          
                 <Route>
-                  //If User already logged in, redirect to Dashboard
                     {authentified.auth?
                         <Redirect to='/'/>
                         :

@@ -56,7 +56,7 @@ module.exports = function(passport) {
     passport.use(
         'jwt',
         new JWTstrategy(opts, (jwt_payload, done) => {
-            User.findOne({ email : email })
+            User.findOne({ email : jwt_payload.id })
                 .then((user) => {
                     if(user) {
                         done(null, user);

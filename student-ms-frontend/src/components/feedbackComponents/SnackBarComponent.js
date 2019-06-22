@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {Fragment, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -107,25 +107,29 @@ export default function CustomizedSnackbars(props) {
             handleClick();
         }
 
-    }, props.stateChange)
+    }, props.stateChange, props.value)
 
     return (
         <div>
-            <Snackbar
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                }}
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-            >
-                <MySnackbarContentWrapper
+            {props.value?
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                    open={open}
+                    autoHideDuration={6000}
                     onClose={handleClose}
-                    variant={props.type}
-                    message={props.message}
-                />
-            </Snackbar>
+                >
+                    <MySnackbarContentWrapper
+                        onClose={handleClose}
+                        variant={props.type}
+                        message={props.message}
+                    />
+                </Snackbar>
+            :
+                <Fragment />
+            }
         </div>
     );
 }
