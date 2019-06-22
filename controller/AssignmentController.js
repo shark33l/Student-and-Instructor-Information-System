@@ -12,7 +12,7 @@ const AssignmentController = function () {
                 File: data.File
             });
             assignment.save().then(() => {
-                resolve({status:200, message: "New Assignment Added successfully" +data.Title+ "" +data.Description+ "" +data.CourseID+ "" + data.DueDate+" "+data.File});
+                resolve({status:200, message: "New Assignment Added successfully"});
             }).catch((err) =>{
                 reject({status:500, message:"An error occurred" +err});
             })
@@ -44,7 +44,7 @@ const AssignmentController = function () {
             schema.update({_id:id}, data).exec().then((data) => {
                 resolve({status:200, message:"Update Assignment"});
             }).catch(err => {
-                reject({status:500, message:"An error occured " + err})
+                reject({status:500, message:"An error occurred " + err})
             })
         }))
     }
@@ -54,7 +54,7 @@ const AssignmentController = function () {
             schema.remove({_id:id}).then(() => {
                 resolve({status:200, message:"Assignment Removed successfully"});
             }).catch(err => {
-                reject({status:500, message:"An error occured " + err});
+                reject({status:500, message:"An error occurred " + err});
             })
         }))
     }

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-var assignmentController = require('../controller/AssignmentController');
+var examController = require('../controller/ExamController');
 
 router.post('/', (req, res) => {
-    assignmentController.insert(req.body).then(data => {
+    examController.insert(req.body).then(data => {
         res.status(data.status).send({message: data.message});
     }).catch(err => {
         res.status(err.status).send({message: err.message});
@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    assignmentController.updateAssignment(req.params.id, req.body).then(data => {
+    examController.updateAssignment(req.params.id, req.body).then(data => {
         res.status(data.status).send({message: data.message});
     }).catch(err => {
         res.status(err.status).send({message: err.message});
@@ -19,7 +19,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    assignmentController.getAll().then(data => {
+    examController.getAll().then(data => {
         res.status(data.status).send({data: data.data});
     }).catch(err => {
         res.status(err.status).send({message: err.message});
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    assignmentController.getOne(req.params.id).then(data => {
+    examController.getOne(req.params.id).then(data => {
         res.status(data.status).send({data: data.data});
     }).catch(err => {
         res.status(err.status).send({message: err.message});
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    assignmentController.delete(req.params.id).then(data => {
+    examController.delete(req.params.id).then(data => {
         res.status(data.status).send({message: data.message});
     }).catch(err => {
         res.status(err.status).send({message: err.message});
