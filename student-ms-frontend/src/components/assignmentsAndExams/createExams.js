@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import {DropzoneArea} from 'material-ui-dropzone'
+
 
 const styles = theme => ({
     container: {
@@ -43,40 +43,35 @@ class OutlinedTextFields extends React.Component {
     constructor(props) {
         super(props);
 
-        this.onChangeAssignmentTitle = this.onChangeAssignmentTitle.bind(this);
-        this.onChangeAssignmentDueDate = this.onChangeAssignmentDueDate.bind(this);
-        this.onChangeAssignmentDueTime = this.onChangeAssignmentDueTime.bind(this);
-        this.onChangeAssignmentDescription = this.onChangeAssignmentDescription.bind(this);
+        this.onChangeExamName = this.onChangeExamName.bind(this);
+        this.onChangeExamDate = this.onChangeExamDate.bind(this);
+        this.onChangeExamDuration = this.onChangeExamDuration.bind(this);
         this.onChangeCourseID = this.onChangeCourseID.bind(this);
-        this.onSaveAssignmentFile = this.onSaveAssignmentFile.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            assignmentTitle: '',
-            assignmentDueDate: '',
-            assignmentDueTime: '00:00',
-            assignmentDescription: '',
-            courseID:'',
-            files: '',
-            open:false
+            examName: '',
+            examDate: '',
+            examDuration: '',
+            courseID:''
         }
     }
 
-    onChangeAssignmentTitle(e) {
+    onChangeExamName(e) {
         this.setState({
-            assignmentTitle: e.target.value
+            examName: e.target.value
         });
     }
 
-    onChangeAssignmentDueDate(e) {
+    onChangeExamDuration(e) {
         this.setState({
-            assignmentDueDate: e.target.value
+            examDuration: e.target.value
         });
     }
 
-    onChangeAssignmentDueTime(e) {
+    onChangeExamDate(e) {
         this.setState({
-            assignmentDueTime: e.target.value
+            examDate: e.target.value
         });
     }
 
@@ -86,29 +81,15 @@ class OutlinedTextFields extends React.Component {
         });
     }
 
-    onChangeAssignmentDescription(e) {
-        this.setState({
-            assignmentDescription: e.target.value
-        });
-    }
-
-    onSaveAssignmentFile(files) {
-        this.setState({
-            files: files,
-            open: false
-        });
-    }
     onSubmit(e) {
         e.preventDefault();
 
 
         this.setState({
-            assignmentTitle: '',
-            assignmentDueDate: '',
-            assignmentDueTime: '',
-            assignmentDescription: '',
+            examName: '',
+            examDuration: '',
+            examDate: '',
             courseID:'',
-            files:''
         })
     }
 
@@ -119,11 +100,11 @@ class OutlinedTextFields extends React.Component {
             <form className={classes.container} style={{ marginLeft:700, marginTop:100}} >
                 <h2 style={{align: 'center', paddingTop: 20, fontStyle: 'caliban', paddingLeft:75, marginLeft:60}}>Assignment</h2>
                 <TextField
-                    id="assignmentTitle"
-                    label="Assignment Title"
+                    id="examName"
+                    label="Exam Name"
                     className={classes.textField}
-                    value={this.state.assignmentTitle}
-                    onChange={this.onChangeAssignmentTitle}
+                    value={this.state.examName}
+                    onChange={this.onChangeExamName}
                     margin="normal"
                     variant="outlined"
                     SelectProps={{
@@ -136,16 +117,33 @@ class OutlinedTextFields extends React.Component {
                 />
 
                 <TextField
-                    id="assignmentDescription"
-                    label="Assignment Description"
-                    multiline
-                    rowsMax="4"
+                    id="date"
+                    label="Exam Date"
+                    type="date"
+                    defaultValue="2019-06-23"
                     className={classes.textField}
-                    value={this.state.assignmentDescription}
-                    onChange={this.onChangeAssignmentDescription}
-                    variant="outlined"
-                    margin="normal"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    width="375"
+                    leftMargin="7"
+                    value={this.state.examDate}
+                    onChange={this.onChangeExamDate}
                 />
+
+                <TextField
+                    id="examDuration"
+                    label="Exam Duration"
+                    className={classes.textField}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    width="375"
+                    leftMargin="7"
+                    value={this.state.examDuration}
+                    onChange={this.onChangeExamDuration}
+                />
+
 
                 <TextField
                     id="courseID"
@@ -162,39 +160,6 @@ class OutlinedTextFields extends React.Component {
                     }}
 
                     margin="normal"
-                />
-
-                <TextField
-                    id="date"
-                    label="Due Date"
-                    type="date"
-                    defaultValue="2019-06-23"
-                    className={classes.textField}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    width="375"
-                    leftMargin="7"
-                    value={this.state.assignmentDueDate}
-                    onChange={this.onChangeAssignmentDueDate}
-                />
-
-                <TextField
-                    id="time"
-                    label="Due Time"
-                    type="time"
-                    defaultValue="07:30"
-                    className={classes.textField}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    value={this.state.assignmentDueTime}
-                    onChange={this.onChangeAssignmentDueTime}
-                />
-
-                <DropzoneArea
-                    value = {this.state.files}
-                    onSave={this.onSaveAssignmentFile}
                 />
 
                 <Button

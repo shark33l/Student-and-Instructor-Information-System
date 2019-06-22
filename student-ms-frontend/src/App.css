@@ -23,6 +23,10 @@
   color: #61dafb;
 }
 
+.form-group {
+  text-align: center;
+}
+
 .container {
 
   text-align: center;
@@ -93,4 +97,24 @@
 .noticePage {
   padding-left: 10%;
   border-style:groove ;
+}
+
+.form-group {
+  text-align: center;
+  margin-left: 600px;
+  width:500px;
+}
+
+.form-control{
+  text-align: center;
+}
+
+.form-title{
+  margin-top: 80px;
+  margin-left: 200px;
+}
+.container{
+  width:500px;
+  text-align: center;
+  margin-left: 800px;
 }

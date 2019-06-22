@@ -15,9 +15,16 @@ import Register from './components/auth/Register';
 import studentHome from "./components/students/studentHome";
 import studentDashboard from "./components/students/studentDashboard";
 import studentSettings from "./components/students/studentSettings";
+import assignmentUpload from "./components/students/assignmentUpload";
+import studentEnrollment from "./components/students/studentEnrollment";
 
 //Assignment Routes
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
+import editAssignment from "./components/assignmentsAndExams/editAssignment";
+import createExams from "./components/assignmentsAndExams/createExams";
+import editExams from "./components/assignmentsAndExams/editExams";
+import viewExams from "./components/assignmentsAndExams/viewExams";
 
 
 
@@ -153,11 +160,19 @@ class App extends React.Component{
                         <Route path="/studentDashboard" exact component={studentDashboard}/>
                         <Route path="/studentHome" exact component={studentHome}/>
                         <Route path="/studentSettings" exact component={studentSettings}/>
+                        <Route path="/assignmentUpload" exact component={assignmentUpload}/>
+                        <Route path="/studentEnrollment" exact component={studentEnrollment}/>
 
                         {/*Assignment*/}
                         <Route path="/assignment" component={Assignments}/>
-
+                        <Route path="/viewAssignments" component={viewAssignments}/>
+                        <Route path="/editAssignments" component={editAssignment}/>
+                        <Route path="/exam" component={createExams}/>
+                        <Route path = "/editExams" component={editExams}/>
+                        <Route path = "/viewExams" component={viewExams}/>
+          
                         {/*Lecturer*/}
+
 
                     </Switch>
                   </Route>
