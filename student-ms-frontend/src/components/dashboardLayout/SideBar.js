@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
+//Import Custom Components
+import SnackBarComponent from '../feedbackComponents/SnackBarComponent'
 
 //Material UI Components
 import {
@@ -23,6 +27,7 @@ import {
 import {
     Dashboard,
     LibraryBooks as Courses,
+    Poll as Exams,
     School as Students,
     Person as Lecturers,
     Info as AboutIcon,
@@ -74,13 +79,63 @@ export default function SideBar(props) {
     const { container } = props;
     const classes = useStyles();
     const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [mobileOpen, setMobileOpen] = useState(false);
+    const [auth, setAuth] = useState(true);
+    const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
+    //Success Message on Login
+    const [stateChange, setStateChange] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+
+    //User Name & Type
+    const [userName, setUserName] = useState("");
+    const [userLevel, setuserLevel] = useState(0);
+    const [userType, setUserType] = useState("");
+
+    //Success Message
+    const [successMessage, setSuccessMessage] = useState("Something is not right")
+
+    useEffect(() => {
+
+        console.log(props)
+
+        if(props.authentified.auth){
+
+            setUserName(props.userDetails.firstName + " " + props.userDetails.lastName);
+            setuserLevel(props.userDetails.userLevel);
+
+            if(userLevel === 1){
+                setUserType("Admin")
+            } else if (userLevel === 2){
+                setUserType("Teacher")
+            } else if (userLevel === 3){
+                setUserType("Student")
+            }
+            setSuccessMessage(userType + " logged in as " + userName);
+            setSuccess(true);
+
+        }
+
+    })
+
+
     function handleAuth(event) {
-        setAuth(!auth);
+        // fetch('http://localhost:5000/rest/api/users/logout')
+        //     .then(response =>{
+        //         return response.json()
+        //     }).then(json =>{
+        //         console.log(json)
+        // })
+
+        window.localStorage.removeItem('jwt');
+        window.localStorage.removeItem('email');
+        setAuth(false);
+        props.removeAuth();
+
+
+
         setAnchorEl(null);
     }
 
@@ -101,10 +156,11 @@ export default function SideBar(props) {
             <div className={classes.toolbar} />
             <Divider />
             <List>
-                {['Dashboard', 'Courses', 'Lecturers', 'Students'].map((text, index) => (
+                {['Dashboard', 'Courses', 'Exams', 'Lecturers', 'Students'].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>{ text === 'Dashboard' ? <Dashboard /> :
                                         text === 'Courses' ? <Courses /> :
+                                        text === 'Exams' ? <Exams /> :
                                         text === 'Lecturers' ? <Lecturers/> :
                                         <Students />}
                         </ListItemIcon>
@@ -126,6 +182,9 @@ export default function SideBar(props) {
 
     return (
         <div className={classes.root}>
+            {userType === "" ? <Fragment />
+                : success? <SnackBarComponent value={true} message={successMessage} type="success" stateChange={true}/>
+                : <SnackBarComponent value={false} />}
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>

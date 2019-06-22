@@ -1,14 +1,24 @@
 const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 //Import User Model
-const User = require('../models/UserModel');
+const mongoose = require('../models/UserModel');
+const User = mongoose.model('UserModel');
+
+//import JWT & Secret code
+const jwtSecret = require('./jwtConfig').secret;
+const JWTstrategy = require('passport-jwt').Strategy;
+const ExtractJWT = require('passport-jwt').ExtractJwt;
 
 
 module.exports = function(passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+        new LocalStrategy(
+            {
+                usernameField: 'email',
+                passwordField: 'password'
+            },
+            (email, password, done) => {
 
             //Match User
             User.findOne({ email : email })
@@ -16,7 +26,7 @@ module.exports = function(passport) {
 
                     //Check Email
                     if(!user) {
-                        return done(null, false, { message: 'Email used is not registered.' });
+                        return done(null, false, { message: "Email used is not registered." });
                     }
 
                     //Match Password
@@ -30,9 +40,35 @@ module.exports = function(passport) {
                         }
                     });
                 })
-                .catch((err) => console.log('Error : ' + err));
+                .catch((err) => {
+                    console.log('Error : ' + err);
+                    done(err);
+                });
         })
     );
+
+    //jwt Startegy
+    const opts = {
+        jwtFromRequest : ExtractJWT.fromAuthHeaderWithScheme('JWT'),
+        secretOrKey : jwtSecret
+    }
+
+    passport.use(
+        'jwt',
+        new JWTstrategy(opts, (jwt_payload, done) => {
+            User.findOne({ email : jwt_payload.id })
+                .then((user) => {
+                    if(user) {
+                        done(null, user);
+                    } else {
+                        done(null, false, { message: 'Email used is not registered.' });
+                    }
+                }).catch((err) => {
+                    console.log('Error : ' + err);
+                    done(err);
+            })
+        })
+    )
 
     //Serializing
     passport.serializeUser((user, done) => {

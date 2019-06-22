@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
+//Import Custom Components
+import SnackBarComponent from '../feedbackComponents/SnackBarComponent'
 
 //Material UI Components
 import { Grid, Paper, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, Typography, Avatar, FormHelperText } from '@material-ui/core';
@@ -16,7 +19,10 @@ class Login extends Component{
               email : '',
               password: ''
             },
-            showPassword : false
+            showPassword : false,
+            loginError : false,
+            errorMessage : '',
+            snackBarStateChange : false
         }
     }
 
@@ -30,19 +36,63 @@ class Login extends Component{
 
     }
 
+    handleLogin = e => {
+        //e.preventDefault();
+
+        //Reset validation
+        this.setState({
+            loginError : false,
+            errorMessage : ""
+        })
+
+        const { loginDetails } = this.state;
+        const loginPostUrl = "http://localhost:5000/rest/api/users/login";
+
+        fetch(loginPostUrl,  {
+            method : 'POST',
+            body : JSON.stringify(loginDetails),
+            headers: {'Content-Type' : 'application/json'}
+        }).then(response => {
+            console.log(response)
+            return response.json()
+        }).then(json => {
+            if(json.auth){
+                console.log("User Logged in")
+                window.localStorage.setItem("jwt", json.token);
+                window.localStorage.setItem("email", json.email);
+                this.props.setAuth(json)
+                this.props.history.push('/')
+            } else {
+                this.setState({
+                    loginError : true,
+                    errorMessage : json.message,
+                    snackBarStateChange : !this.state.snackBarStateChange
+                }, console.log(this.state))
+            }
+            console.log(json)
+        })
+
+    }
+
     handleClickShowPassword = e => {
         this.setState({
             showPassword : !this.state.showPassword
         })
     }
 
+    componentWillMount() {
+        console.log(this.props)
+    }
+
     render(){
 
         const { email, password } = this.state.loginDetails;
-        const { showPassword } = this.state;
+        const { showPassword, loginError, errorMessage, snackBarStateChange } = this.state;
 
         return(
             <Grid container style={{padding: 50}} alignItems="center">
+                {loginError? <SnackBarComponent value={true} message={errorMessage} type="error" stateChange={snackBarStateChange}/>
+                : <SnackBarComponent value={false} />}
                 <Grid item xs={12} sm={8} lg={5} style={{margin: 'auto'}}>
                     <Paper style={{padding: 50, margin: 'auto'}}>
                         <Avatar src={require('../../images/Hogwarts-Logo.png')} style={{width:150, height: 150, marginRight: 'auto', marginLeft: 'auto', marginBottom: 15}}/>
@@ -51,6 +101,7 @@ class Login extends Component{
                         </Typography>
                         <TextField
                             autoFocus
+                            error={loginError}
                             name="email"
                             id="standard-email"
                             label="Email"
@@ -62,6 +113,7 @@ class Login extends Component{
                         <FormControl fullWidth margin="normal">
                             <InputLabel htmlFor="adornment-password">Password</InputLabel>
                             <Input
+                                error={loginError}
                                 name = "password"
                                 id="adornment-password"
                                 type={showPassword ? 'text' : 'password'}
@@ -76,7 +128,7 @@ class Login extends Component{
                                 }
                             />
                         </FormControl>
-                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} fullWidth>
+                        <Button variant="contained" color="primary" style={{padding: 10, marginTop: 30}} onClick={this.handleLogin.bind(this)} fullWidth>
                             Login
                         </Button>
                         <Typography style={{marginTop: 30}}>
@@ -98,4 +150,4 @@ class Login extends Component{
 
 }
 
-export default Login;
+export default withRouter(Login);
