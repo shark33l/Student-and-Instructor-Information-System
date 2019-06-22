@@ -47,6 +47,7 @@ class OutlinedTextFields extends React.Component {
         this.onChangeAssignmentDueDate = this.onChangeAssignmentDueDate.bind(this);
         this.onChangeAssignmentDueTime = this.onChangeAssignmentDueTime.bind(this);
         this.onChangeAssignmentDescription = this.onChangeAssignmentDescription.bind(this);
+        this.onChangeCourseID = this.onChangeCourseID.bind(this);
         this.onSaveAssignmentFile = this.onSaveAssignmentFile.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -55,7 +56,8 @@ class OutlinedTextFields extends React.Component {
             assignmentDueDate: '',
             assignmentDueTime: '00:00',
             assignmentDescription: '',
-            files: [],
+            courseID:'',
+            files: '',
             open:false
         }
     }
@@ -75,6 +77,12 @@ class OutlinedTextFields extends React.Component {
     onChangeAssignmentDueTime(e) {
         this.setState({
             assignmentDueTime: e.target.value
+        });
+    }
+
+    onChangeCourseID(e){
+        this.setState({
+            courseID: e.target.value
         });
     }
 
@@ -98,7 +106,9 @@ class OutlinedTextFields extends React.Component {
             assignmentTitle: '',
             assignmentDueDate: '',
             assignmentDueTime: '',
-            assignmentDescription: ''
+            assignmentDescription: '',
+            courseID:'',
+            files:''
         })
     }
 
@@ -138,6 +148,23 @@ class OutlinedTextFields extends React.Component {
                 />
 
                 <TextField
+                    id="courseID"
+                    label="Course ID"
+                    className={classes.textField}
+                    value={this.state.courseID}
+                    onChange={this.onChangeCourseID}
+                    margin="normal"
+                    variant="outlined"
+                    SelectProps={{
+                        MenuProps: {
+                            className: classes.menu,
+                        },
+                    }}
+
+                    margin="normal"
+                />
+
+                <TextField
                     id="date"
                     label="Due Date"
                     type="date"
@@ -167,7 +194,7 @@ class OutlinedTextFields extends React.Component {
 
                 <DropzoneArea
                     value = {this.state.files}
-                    onSave={this.onChangeAssignmentFile}
+                    onSave={this.onSaveAssignmentFile}
                 />
 
                 <Button
