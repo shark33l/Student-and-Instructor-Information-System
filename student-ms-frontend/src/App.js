@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import './App.css';
-import {BrowserRouter, Switch, Route, Router, BrowserRouter as Link} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
 //Routes
 //NavBar
-//import NavBar from './components/dashboardLayout/Navbar';
+import NavBar from './components/dashboardLayout/Navbar';
 import SideBar from './components/dashboardLayout/SideBar';
 import Notice from './components/dashboardLayout/Notice';
 
@@ -24,24 +24,32 @@ class App extends React.Component{
     constructor(){
         super();
         this.state={
-            auth: true
+            authentified: {
+                auth : false
+            }
         }
+    }
+
+    setAuth(auth){
+        this.setState({
+            authentified : auth
+        })
     }
 
 
     render() {
 
-        const { auth } = this.state;
+        const { authentified } = this.state;
 
         return (
 
 
             <BrowserRouter>
-
-
-                {!auth? <Fragment /> : <SideBar />}
-
-                <Route>
+                //If Authentified, allow new Routes, or redirect to Login
+                {!authentified.auth? <Redirect to='/login'/>
+                : 
+                  <Route>
+                    <SideBar />}
                     <Switch>
                         <Route path="/login" exact component={Login}/>
                         <Route path="/register" exact component={Register}/>
@@ -54,8 +62,21 @@ class App extends React.Component{
                         <Route path="/assignment" component={Assignments}/>
 
                     </Switch>
+                  </Route>
+                }
+          
+                <Route>
+                  //If User already logged in, redirect to Dashboard
+                    {authentified.auth?
+                        <Redirect to='/'/>
+                        :
+                        <Switch>
+                            <Route path="/login" exact
+                                   render={(props) => <Login {...props} setAuth = {this.setAuth.bind(this)} />}/>
+                            <Route path="/register" exact component={Register}/>
+                        </Switch>
+                    }
                 </Route>
-
             </BrowserRouter>
         );
     }
