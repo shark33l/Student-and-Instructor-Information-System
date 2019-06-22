@@ -161,7 +161,7 @@ export default function SideBar(props) {
                         <ListItemIcon>{ text === 'Dashboard' ? <Dashboard /> :
                                         text === 'Courses' ? <Courses /> :
                                         text === 'Exams' ? <Exams /> :
-                                        text === 'Lecturers' ? <Lecturers/> :
+                                            text === 'Lecturers' ? <Link to='/lecturer/add'><Lecturers/></Link> :
                                         <Students />}
                         </ListItemIcon>
                         <ListItemText primary={text} />
