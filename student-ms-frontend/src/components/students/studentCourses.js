@@ -1,13 +1,12 @@
-/*import React, { Component } from 'react';
+import React, { Component } from 'react';
 import {Link} from "react-router-dom";
-//import axios from 'axios';
+import axios from 'axios';
 
 const stCourses = props => (
     <tr>
-        <td>{props.stCourses.courseId}</td>
+        <td>{props.stCourses.courseID}</td>
         <td>{props.stCourses.courseName}</td>
-        <td>{props.stCourses.courseDescription}</td>
-        <td>{props.stCourses.lecturers}</td>
+
         <td>
             <Link to={"/register/"+props.stCourses._id}>Register</Link>
         </td>
@@ -22,7 +21,7 @@ export default class studentCourses extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/studentCourses/')
+        axios.get('http://localhost:5000/rest/api/StudentCoursesRouter')
             .then(response => {
                 this.setState({ stCourses: response.data });
             })
@@ -41,13 +40,12 @@ export default class studentCourses extends Component {
         return (
             <div>
                 <h3>Course List</h3>
-                <table className="table table-striped" style={{ marginTop: 20 }} >
+                <table className="table-striped" style={{ marginTop: 20, marginLeft:700 }} >
                     <thead>
                     <tr>
                         <th>Course ID</th>
                         <th>Course Name</th>
-                        <th>Course Description</th>
-                        <th>Lecturers</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -59,4 +57,3 @@ export default class studentCourses extends Component {
     }
 }
 
-*/

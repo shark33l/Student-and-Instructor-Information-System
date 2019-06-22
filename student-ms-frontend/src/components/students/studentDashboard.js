@@ -8,6 +8,10 @@ import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
 import Table from "@material-ui/core/Table";
 import studentSettings from "./studentSettings";
+import studentCourses from "./studentCourses";
+import studentRegisteredCourses from "./studentRegisteredCourses";
+
+import { Grid, Paper, Typography } from '@material-ui/core';
 
 const StyledTableCell = withStyles(theme => ({
     head: {
@@ -20,6 +24,14 @@ const StyledTableCell = withStyles(theme => ({
 }))(TableCell);
 
 class StudentDashboard extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            courseCount: 24
+        }
+    }
+
     render() {
         return (
             <Router>
@@ -34,10 +46,10 @@ class StudentDashboard extends Component {
                                     <Link to="/" className="nav-link">Home</Link>
                                 </StyledTableCell>
                                 <StyledTableCell>
-                                    <Link to="/login" className="nav-link">Courses</Link>
+                                    <Link to="/studentCourses" className="nav-link">Courses</Link>
                                 </StyledTableCell>
                                 <StyledTableCell>
-                                    <Link to="/" className="nav-link">My Courses</Link>
+                                    <Link to="/studentRegisteredCourses" className="nav-link">My Courses</Link>
                                 </StyledTableCell>
                                 <StyledTableCell>
                                     <Link to="/" className="nav-link">Notifications</Link>
@@ -52,9 +64,43 @@ class StudentDashboard extends Component {
                         </div>
 
                     <br/>
+
+                        <Grid container direction={"row"} spacing={4} xs={12}>
+
+                            <Grid item xs={3}>
+                                <Link to="/studentRegisteredCourses" style={{ textDecoration: 'none' }}>
+                    <Paper style={{background: "#3949ab", color: "white"}}>
+                        <div style={{paddingTop: 20, paddingBottom: 20}}>
+                        <Typography variant="h6" >
+                            Registered Courses
+                        </Typography>
+                        <Typography variant="h1">
+                            {this.state.courseCount}
+                        </Typography>
+                        </div>
+                    </Paper>
+                    </Link>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Link to="/studentCourses" style={{ textDecoration: 'none' }}>
+                                <Paper style={{background: "#1e88e5", color: "white"}}>
+                                    <div style={{paddingTop: 20, paddingBottom: 20}}>
+                                    <Typography variant="h6" >
+                                        All Courses
+                                    </Typography>
+                                    <Typography variant="h1">
+                                        {this.state.courseCount}
+                                    </Typography>
+                                    </div>
+                                </Paper>
+                                </Link>
+                            </Grid>
+                        </Grid>
+
+
                     <Route path="/" exact component={studentHome}/>
-                    <Route path="/login" exact component={Login}/>
-                    {/*<Route path="/" exact component={studentHome}/>*/}
+                    <Route path="/studentCourses" exact component={studentCourses}/>
+                    <Route path="/studentRegisteredCourses" exact component={studentRegisteredCourses}/>
                     {/*<Route path="/" exact component={studentHome}/>*/}
                     <Route path="/studentSettings" exact component={studentSettings}/>
 
