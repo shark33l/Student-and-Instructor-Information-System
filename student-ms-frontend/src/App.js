@@ -17,6 +17,8 @@ import studentDashboard from "./components/students/studentDashboard";
 import studentSettings from "./components/students/studentSettings";
 
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
+import editAssignment from "./components/assignmentsAndExams/editAssignment";
 
 
 
@@ -60,6 +62,11 @@ class App extends React.Component{
 
 
                         <Route path="/assignment" component={Assignments}/>
+
+                        <Route path="/viewAssignments" component={viewAssignments}/>
+                        <Route path="/editAssignments" component={editAssignment}/>
+
+
 
                     </Switch>
                   </Route>
