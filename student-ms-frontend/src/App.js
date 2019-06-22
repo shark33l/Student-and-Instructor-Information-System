@@ -14,6 +14,9 @@ import Register from './components/auth/Register';
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
 import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
 import editAssignment from "./components/assignmentsAndExams/editAssignment";
+import createExams from "./components/assignmentsAndExams/createExams";
+import editExams from "./components/assignmentsAndExams/editExams";
+import viewExams from "./components/assignmentsAndExams/viewExams";
 
 
 class App extends React.Component{
@@ -44,6 +47,9 @@ class App extends React.Component{
                         <Route path="/assignment" component={Assignments}/>
                         <Route path="/viewAssignments" component={viewAssignments}/>
                         <Route path="/editAssignments" component={editAssignment}/>
+                        <Route path="/exam" component={createExams}/>
+                        <Route path = "/editExams" component={editExams}/>
+                        <Route path = "/viewExams" component={viewExams}/>
 
                     </Switch>
                 </Route>

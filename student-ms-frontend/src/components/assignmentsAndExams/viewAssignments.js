@@ -11,7 +11,7 @@ export default class ViewAssignments extends Component{
     }
 
     componentDidMount() {
-        axios.get('/api/assignments').then(
+        axios.get('http://localhost:5000/rest/api/assignments').then(
             data => {
                 this.setState({
                     assignments : data.data
@@ -39,6 +39,7 @@ export default class ViewAssignments extends Component{
                                     <td>{Assignments.Title}</td>
                                     <td>{Assignments.Description}</td>
                                     <td>{Assignments.DueDate}</td>
+                                    <td>{Assignments.CourseID}</td>
                                     <td>{Assignments.File}</td>
                                     <Link to={"/editAssignments/"+Assignments._id}>Edit Assignment</Link>
                                 </tr>

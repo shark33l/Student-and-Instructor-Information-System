@@ -6,10 +6,13 @@ const routes = express.Router();
 const index = require('./index');
 const users = require('./users');
 const notice = require('./noticeRouter');
-
+const assignment = require('./assignmentRouter');
+const exam = require('./examRouter');
 //Routes
 routes.use('/', index);
 routes.use('/users', users);
 routes.use('/notice',notice);
+routes.use('/assignments', assignment);
+routes.use('/exams', exam);
 
 module.exports = routes;
