@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 //Material UI Components
 import {
@@ -75,7 +75,8 @@ class Register extends Component{
                 console.log("User already Exists")
             }
             if(json.created){
-                console.log("User Created")
+                console.log("User Created");
+                this.props.history.push('/login')
             }
             console.log(json)
         })
@@ -189,4 +190,4 @@ class Register extends Component{
 
 }
 
-export default Register;
+export default withRouter(Register);

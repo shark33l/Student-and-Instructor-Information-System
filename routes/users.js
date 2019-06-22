@@ -66,6 +66,8 @@ router.post('/login', (req, res, next) => {
                  token: token,
                  email: user.email,
                  firstName: user.firstName,
+                 lastName: user.lastName,
+                 userLevel: user.userLevel,
                  message: 'User found & logged in'
              });
          }).catch((err) => {
@@ -76,6 +78,40 @@ router.post('/login', (req, res, next) => {
    })(req, res, next);
 
 });
+
+// Find User
+router.get('/finduser', (req, res, next) => {
+
+    passport.authenticate('jwt', { session : false }, (err, user, info) => {
+
+        if(err){
+            console.log(err);
+            res.send({ message : err.message })
+        }
+
+        if( info !== undefined){
+
+            console.log(info.message);
+            res.send({ message : info.message })
+
+        } else {
+
+            console.log('User found in DB');
+            res.status(200).send({
+
+                auth : true,
+                firstName : user.firstName,
+                lastName : user.lastName,
+                email : user.email,
+                userLevel : user.userLevel
+
+            })
+
+        }
+
+    })(req, res, next);
+
+})
 
 // Logout User
 router.get('/logout', (req,res) => {
