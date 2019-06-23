@@ -1,4 +1,4 @@
-const mongoose = require('../model/DBSchema');
+const mongoose = require('../models/noticeModel');
 const NoticeModel = mongoose.model('Notice');
 
 const noticeController = function () {

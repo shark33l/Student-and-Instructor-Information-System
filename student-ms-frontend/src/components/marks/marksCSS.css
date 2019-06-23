@@ -1,0 +1,36 @@
+.containerMarks{
+
+    background-color: lightslategrey;
+    color: white;
+
+
+}
+ .rowMarks{
+     background-color: dimgrey;
+     padding: 2%;
+ }
+
+ .col-md-3{
+     text-align: center ;
+     padding: auto;
+     border : 5px WindowFrame ;
+ }
+
+ ul{
+     list-style:none;
+
+
+ }
+
+.resultsMarks{
+     text-align: left;
+     /*border-bottom: 1px dotted #282c34;*/
+
+ }
+
+li{
+    text-align: left;
+    border-bottom: 1px dotted #282c34;
+    padding: inherit;
+
+}

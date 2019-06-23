@@ -178,20 +178,20 @@ class App extends React.Component{
             //Private Routes - General
             const PrivateRouteSideBar = ({ component: Component, removeAuth, userDetails, authentified,...rest }) => (
                 console.log(this.state.authentified),
-                console.log('path is ' + currentPath + ' auth - '+ authentified.auth),
+                    console.log('path is ' + currentPath + ' auth - '+ authentified.auth),
                     <Route {...rest} render={(props) => (
                         authentified.auth === true
                             ? <Component {...props} removeAuth={removeAuth} userDetails={userDetails} authentified={authentified}/>
                             : currentPath === '/register'?
-                                <Redirect to={{ pathname: currentPath }} />
+                            <Redirect to={{ pathname: currentPath }} />
                             : currentPath === '/forgotpassword'?
                                 <Redirect to={{ pathname: currentPath }} />
-                            : currentPath.includes('/resetpassword')?
-                                <Redirect to={{ pathname: currentPath }} />
-                            : currentPath === '/error404'?
-                            <Redirect to={{ pathname: currentPath }} />
-                            :
-                                <Redirect to={{ pathname: '/login' }} />
+                                : currentPath.includes('/resetpassword')?
+                                    <Redirect to={{ pathname: currentPath }} />
+                                    : currentPath === '/error404'?
+                                        <Redirect to={{ pathname: currentPath }} />
+                                        :
+                                        <Redirect to={{ pathname: '/login' }} />
                     )} />
             )
 
@@ -262,13 +262,13 @@ class App extends React.Component{
                     <Route>
 
                         {/*{authentified.auth ?*/}
-                            {/*<SideBar*/}
-                                {/*removeAuth={this.removeAuth.bind(this)}*/}
-                                {/*userDetails={this.state.userDetails}*/}
-                                {/*authentified={authentified}/>*/}
-                            {/*:*/}
-                            {/*<Redirect*/}
-                                {/*to='/login'/>*/}
+                        {/*<SideBar*/}
+                        {/*removeAuth={this.removeAuth.bind(this)}*/}
+                        {/*userDetails={this.state.userDetails}*/}
+                        {/*authentified={authentified}/>*/}
+                        {/*:*/}
+                        {/*<Redirect*/}
+                        {/*to='/login'/>*/}
                         {/*}*/}
 
                         <PrivateRouteSideBar
@@ -285,38 +285,38 @@ class App extends React.Component{
                             <Route path="/error404" exact component={errorPage}/>
 
                             {(this.state.userDetails.userLevel === 3) ? (
-                                //Student
-                                <Route>
-                                    <PrivateStudentRoute path="/" exact component={studentDashboard}/>
-                                    <Route path="/studentHome" exact component={studentHome}/>
-                                    <Route path="/studentSettings" exact component={studentSettings}/>
-                                    <Route path="/assignmentUpload" exact component={assignmentUpload}/>
-                                    <Route path="/studentEnrollment" exact component={studentEnrollment}/>
-
-                                    //Exams
-                                    <Route path="/viewExams" component={viewExams}/>
-
-                                    //Assignments
-                                    <Route path="/viewAssignments" component={viewAssignments}/>
-
-                                </Route>
-                                )
-                            : (this.state.userDetails.userLevel === 2 || this.state.userDetails.userLevel === 3) ?(
-                                    //Lecturer
+                                    //Student
                                     <Route>
+                                        <PrivateStudentRoute path="/" exact component={studentDashboard}/>
+                                        <Route path="/studentHome" exact component={studentHome}/>
+                                        <Route path="/studentSettings" exact component={studentSettings}/>
+                                        <Route path="/assignmentUpload" exact component={assignmentUpload}/>
+                                        <Route path="/studentEnrollment" exact component={studentEnrollment}/>
+
                                         //Exams
-                                        <Route path="/exam" component={createExams}/>
-                                        <Route path="/editExams" component={editExams}/>
                                         <Route path="/viewExams" component={viewExams}/>
 
                                         //Assignments
-                                        <Route path="/assignment" component={Assignments}/>
-                                        <Route path="/editAssignments" component={editAssignment}/>
                                         <Route path="/viewAssignments" component={viewAssignments}/>
 
                                     </Route>
                                 )
-                             : (
+                                : (this.state.userDetails.userLevel === 2 || this.state.userDetails.userLevel === 3) ?(
+                                        //Lecturer
+                                        <Route>
+                                            //Exams
+                                            <Route path="/exam" component={createExams}/>
+                                            <Route path="/editExams" component={editExams}/>
+                                            <Route path="/viewExams" component={viewExams}/>
+
+                                            //Assignments
+                                            <Route path="/assignment" component={Assignments}/>
+                                            <Route path="/editAssignments" component={editAssignment}/>
+                                            <Route path="/viewAssignments" component={viewAssignments}/>
+
+                                        </Route>
+                                    )
+                                    : (
                                         //Admin
                                         <Route>
                                             <PrivateRoute path="/" exact component={adminDashboard} userDetails={userDetails}/>
@@ -332,7 +332,7 @@ class App extends React.Component{
                     <Route>
                         <Switch>
                             <LoginRoute path="/login" exact
-                                   component={Login} setAuth={this.setAuth.bind(this)}/>}/>
+                                        component={Login} setAuth={this.setAuth.bind(this)}/>}/>
                             <RegisterRoute path="/register" exact component={Register}/>
                             <RegisterRoute path="/forgotpassword" exact component={ForgotPassword}/>
                             <RegisterRoute path="/resetpassword/:token" exact component={ResetPassword}/>
