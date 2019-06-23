@@ -10,12 +10,17 @@ import Notice from './components/dashboardLayout/Notice';
 //Error Page
 import errorPage from './components/error/errorPage';
 
+//Loading Page
+import LoadingPage from './components/feedbackComponents/LoadingPage'
+
 //Authentication Routes
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import ForgotPassword from './components/auth/ForgotPassword'
+import ResetPassword from './components/auth/ResetPassword'
 
-//Lecturer Routes
-import addLecturer from './components/adminPanel/accounts/addLecturer'
+//Admin Routes
+import adminDashboard from './components/adminPanel/adminDashboard'
 
 //Student Routes
 import studentHome from "./components/students/studentHome";
@@ -33,8 +38,8 @@ import editExams from "./components/assignmentsAndExams/editExams";
 import viewExams from "./components/assignmentsAndExams/viewExams";
 
 class App extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state={
             authentified: {
                 auth : false
@@ -42,6 +47,7 @@ class App extends React.Component{
             accessString: '',
             userDetails : [],
             pageLoaded: false,
+            currentPath : ''
         }
     }
 
@@ -76,6 +82,11 @@ class App extends React.Component{
         let accessString = localStorage.getItem("jwt");
         let email = localStorage.getItem("email");
 
+        console.log(window.location.pathname);
+        this.setState({
+            currentPath : window.location.pathname
+        })
+
         const findUserUrl = "http://localhost:5000/rest/api/users/finduser";
 
         fetch(findUserUrl, {
@@ -97,7 +108,7 @@ class App extends React.Component{
                 }
                 this.setState({
                     pageLoaded : true
-                })
+                }, console.log(this.state))
             })
         console.log(this.state);
 
@@ -148,19 +159,39 @@ class App extends React.Component{
 
     render() {
 
-        const { authentified, userDetails, pageLoaded } = this.state;
+        const { authentified, userDetails, pageLoaded, currentPath } = this.state;
 
         if(pageLoaded) {
 
             //Private Routes - General
-            const PrivateRoute = ({ component: Component, ...rest }) => (
+            const PrivateRoute = ({ component: Component, userDetails, ...rest }) => (
                 console.log(this.state.authentified),
                     <Route {...rest} render={(props) => (
-                        this.state.authentified.auth === true
-                            ? <Component {...props} />
+                        authentified.auth === true
+                            ? <Component {...props} userDetails ={userDetails}/>
                             : <Redirect to={{
                                 pathname: '/login'
                             }} />
+                    )} />
+            )
+
+            //Private Routes - General
+            const PrivateRouteSideBar = ({ component: Component, removeAuth, userDetails, authentified,...rest }) => (
+                console.log(this.state.authentified),
+                console.log('path is ' + currentPath + ' auth - '+ authentified.auth),
+                    <Route {...rest} render={(props) => (
+                        authentified.auth === true
+                            ? <Component {...props} removeAuth={removeAuth} userDetails={userDetails} authentified={authentified}/>
+                            : currentPath === '/register'?
+                                <Redirect to={{ pathname: currentPath }} />
+                            : currentPath === '/forgotpassword'?
+                                <Redirect to={{ pathname: currentPath }} />
+                            : currentPath.includes('/resetpassword')?
+                                <Redirect to={{ pathname: currentPath }} />
+                            : currentPath === '/error404'?
+                            <Redirect to={{ pathname: currentPath }} />
+                            :
+                                <Redirect to={{ pathname: '/login' }} />
                     )} />
             )
 
@@ -171,7 +202,7 @@ class App extends React.Component{
                         this.state.userDetails.userLevel === 1
                             ? <Component {...props} />
                             : <Redirect to={{
-                                pathname: '/login'
+                                pathname: '/'
                             }} />
                     )} />
             )
@@ -183,7 +214,7 @@ class App extends React.Component{
                         this.state.userDetails.userLevel === 2
                             ? <Component {...props} />
                             : <Redirect to={{
-                                pathname: '/login'
+                                pathname: '/'
                             }} />
                     )} />
             )
@@ -194,8 +225,7 @@ class App extends React.Component{
                     <Route {...rest} render={(props) => (
                         this.state.userDetails.userLevel === 3
                             ? <Component {...props} />
-                            : <Redirect to={{
-                                pathname: '/login'
+                            : <Redirect to={{pathname: '/login'
                             }} />
                     )} />
             )
@@ -213,6 +243,17 @@ class App extends React.Component{
                     )} />
             )
 
+            //Register
+            const RegisterRoute = ({ component: Component, ...rest }) => (
+                console.log(this.state.authentified),
+                    <Route {...rest} render={(props) => (
+                        this.state.authentified.auth !== true
+                            ? <Component {...props} />
+                            : <Redirect to={{
+                                pathname: '/'
+                            }} />
+                    )} />
+            )
 
             return (
 
@@ -220,36 +261,71 @@ class App extends React.Component{
                 <BrowserRouter>
                     <Route>
 
-                        {authentified.auth ?
-                            <SideBar
-                                removeAuth={this.removeAuth.bind(this)}
-                                userDetails={this.state.userDetails}
-                                authentified={authentified}/>
-                            :
-                            <Redirect
-                                to='/login'/>
-                        }
+                        {/*{authentified.auth ?*/}
+                            {/*<SideBar*/}
+                                {/*removeAuth={this.removeAuth.bind(this)}*/}
+                                {/*userDetails={this.state.userDetails}*/}
+                                {/*authentified={authentified}/>*/}
+                            {/*:*/}
+                            {/*<Redirect*/}
+                                {/*to='/login'/>*/}
+                        {/*}*/}
+
+                        <PrivateRouteSideBar
+                            path="/"
+                            component={SideBar}
+                            removeAuth={this.removeAuth.bind(this)}
+                            userDetails={this.state.userDetails}
+                            authentified={this.state.authentified}
+                        />
+
+
                         <Switch>
 
                             <Route path="/error404" exact component={errorPage}/>
 
-                            {/*Student*/}
-                            <Route path="/studentDashboard" exact component={studentDashboard}/>
-                            <Route path="/studentHome" exact component={studentHome}/>
-                            <Route path="/studentSettings" exact component={studentSettings}/>
-                            <Route path="/assignmentUpload" exact component={assignmentUpload}/>
-                            <Route path="/studentEnrollment" exact component={studentEnrollment}/>
+                            {(this.state.userDetails.userLevel === 3) ? (
+                                //Student
+                                <Route>
+                                    <PrivateStudentRoute path="/" exact component={studentDashboard}/>
+                                    <Route path="/studentHome" exact component={studentHome}/>
+                                    <Route path="/studentSettings" exact component={studentSettings}/>
+                                    <Route path="/assignmentUpload" exact component={assignmentUpload}/>
+                                    <Route path="/studentEnrollment" exact component={studentEnrollment}/>
+
+                                    //Exams
+                                    <Route path="/viewExams" component={viewExams}/>
+
+                                    //Assignments
+                                    <Route path="/viewAssignments" component={viewAssignments}/>
+
+                                </Route>
+                                )
+                            : (this.state.userDetails.userLevel === 2 || this.state.userDetails.userLevel === 3) ?(
+                                    //Lecturer
+                                    <Route>
+                                        //Exams
+                                        <Route path="/exam" component={createExams}/>
+                                        <Route path="/editExams" component={editExams}/>
+                                        <Route path="/viewExams" component={viewExams}/>
+
+                                        //Assignments
+                                        <Route path="/assignment" component={Assignments}/>
+                                        <Route path="/editAssignments" component={editAssignment}/>
+                                        <Route path="/viewAssignments" component={viewAssignments}/>
+
+                                    </Route>
+                                )
+                             : (
+                                        //Admin
+                                        <Route>
+                                            <PrivateRoute path="/" exact component={adminDashboard} userDetails={userDetails}/>
+                                        </Route>
+                                    )
+
+                            }
 
                             {/*Assignment*/}
-                            <Route path="/assignment" component={Assignments}/>
-                            <Route path="/viewAssignments" component={viewAssignments}/>
-                            <Route path="/editAssignments" component={editAssignment}/>
-                            <Route path="/exam" component={createExams}/>
-                            <Route path="/editExams" component={editExams}/>
-                            <Route path="/viewExams" component={viewExams}/>
-
-                            {/*Lecturer*/}
-                            <Route path="/lecturer/add" component={addLecturer}/>
 
                         </Switch>
                     </Route>
@@ -257,7 +333,9 @@ class App extends React.Component{
                         <Switch>
                             <LoginRoute path="/login" exact
                                    component={Login} setAuth={this.setAuth.bind(this)}/>}/>
-                            <Route path="/register" exact component={Register}/>
+                            <RegisterRoute path="/register" exact component={Register}/>
+                            <RegisterRoute path="/forgotpassword" exact component={ForgotPassword}/>
+                            <RegisterRoute path="/resetpassword/:token" exact component={ResetPassword}/>
                         </Switch>
                     </Route>
                 </BrowserRouter>
@@ -265,7 +343,7 @@ class App extends React.Component{
         }
         else {
             return(
-                <h1>Loading</h1>
+                <LoadingPage />
             )
         }
     }

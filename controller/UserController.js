@@ -15,7 +15,9 @@ const UserController = function(){
                 lastName : data.lastName,
                 email : data.email,
                 userLevel : data.userLevel,
-                password : data.password
+                password : data.password,
+                resetPasswordToken: null,
+                resetPasswordExpires: null
             });
             console.log(data);
 
@@ -31,7 +33,7 @@ const UserController = function(){
                     //Save User
                     console.log(user);
                     user.save().then(() => {
-                        resolve({status : 200, message : "New User Registered : " + data.firstName + " " + data.lastName, id : user._id});
+                        resolve({status : 200, message : "New User Registered : " + data.firstName + " " + data.lastName, id : user._id, email : user.email});
                     }).catch( (err) => {
                         reject({ status : 500, message : "Error : " + err});
                     })

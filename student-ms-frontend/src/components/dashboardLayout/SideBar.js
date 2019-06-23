@@ -106,6 +106,8 @@ export default function SideBar(props) {
             setUserName(props.userDetails.firstName + " " + props.userDetails.lastName);
             setuserLevel(props.userDetails.userLevel);
 
+            console.log("It got here");
+
             if(userLevel === 1){
                 setUserType("Admin")
             } else if (userLevel === 2){
@@ -113,7 +115,7 @@ export default function SideBar(props) {
             } else if (userLevel === 3){
                 setUserType("Student")
             }
-            setSuccessMessage(userType + " logged in as " + userName);
+            setSuccessMessage(userName + " logged in as " + userType);
             setSuccess(true);
 
         }
@@ -157,15 +159,23 @@ export default function SideBar(props) {
             <Divider />
             <List>
                 {['Dashboard', 'Courses', 'Exams', 'Lecturers', 'Students'].map((text, index) => (
+                    <Link to={
+                        text === 'Dashboard' ? '/' :
+                        text === 'Courses' ? '/courses' :
+                        text === 'Exams' ? '/exams' :
+                        text === 'Lecturers' ? '/lecturer/add'
+                        : '/students'}
+                          style={{ textDecoration: 'none', color: 'black' }}>
                     <ListItem button key={text}>
                         <ListItemIcon>{ text === 'Dashboard' ? <Dashboard /> :
                                         text === 'Courses' ? <Courses /> :
                                         text === 'Exams' ? <Exams /> :
-                                            text === 'Lecturers' ? <Link to='/lecturer/add'><Lecturers/></Link> :
-                                        <Students />}
+                                        text === 'Lecturers' ? <Lecturers/>
+                                        : <Students />}
                         </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
+                    </Link>
                 ))}
             </List>
             <Divider />
@@ -232,7 +242,7 @@ export default function SideBar(props) {
                                 open={open}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                <MenuItem onClick={handleClose}>{userName}</MenuItem>
                                 <MenuItem onClick={handleAuth}>Logout</MenuItem>
                             </Menu>
                         </div>

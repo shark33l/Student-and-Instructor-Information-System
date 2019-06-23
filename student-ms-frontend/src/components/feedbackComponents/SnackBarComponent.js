@@ -107,7 +107,7 @@ export default function CustomizedSnackbars(props) {
             handleClick();
         }
 
-    }, props.stateChange, props.value)
+    }, props.stateChange)
 
     return (
         <div>

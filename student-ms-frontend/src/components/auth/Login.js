@@ -31,9 +31,6 @@ class Login extends Component{
         let loginDetails = {...this.state.loginDetails};
         loginDetails[name] = value;
         this.setState({loginDetails});
-
-        console.log(loginDetails);
-
     }
 
     handleLogin = e => {
@@ -136,7 +133,7 @@ class Login extends Component{
                         </Typography>
                         <hr />
                         <Typography style={{marginBottom: 15}}>
-                            Having trouble with your account? <Link to='/register'>Forgot Password</Link>
+                            Having trouble with your account? <Link to='/forgotpassword'>Forgot Password</Link>
                         </Typography>
                         <FormHelperText>
                             Contact adminhogwarts@gmail.com if you are
