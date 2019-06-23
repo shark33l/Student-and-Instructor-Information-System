@@ -26,11 +26,20 @@ import studentEnrollment from "./components/students/studentEnrollment";
 
 //Assignment Routes
 import Assignments from "./components/assignmentsAndExams/CreateAssignment";
+
+import studentAssignmentsList from "./components/students/studentAssignmentsList";
+import studentAssignmentsView from "./components/students/studentAssignmentsView";
+import studentCourses from "./components/students/studentCourses";
+import studentExamsList from "./components/students/studentExamsList";
+import studentExamsView from "./components/students/studentExamsView";
+import studentRegisteredCourses from "./components/students/studentRegisteredCourses";
+
 import viewAssignments from "./components/assignmentsAndExams/viewAssignments";
 import editAssignment from "./components/assignmentsAndExams/editAssignment";
 import createExams from "./components/assignmentsAndExams/createExams";
 import editExams from "./components/assignmentsAndExams/editExams";
 import viewExams from "./components/assignmentsAndExams/viewExams";
+
 
 class App extends React.Component{
     constructor(){
@@ -166,15 +175,17 @@ class App extends React.Component{
 
             //Private Routes - Admin
             const PrivateAdminRoute = ({ component: Component, ...rest }) => (
-                console.log(this.state.authentified),
-                    <Route {...rest} render={(props) => (
-                        this.state.userDetails.userLevel === 1
-                            ? <Component {...props} />
-                            : <Redirect to={{
-                                pathname: '/login'
-                            }} />
-                    )} />
-            )
+                    console.log(this.state.authentified),
+                        <Route {...rest} render={(props) => (
+                            this.state.userDetails.userLevel === 1
+                                ? <Component {...props} />
+                                : <Redirect to={{
+                                    pathname: '/login'
+                                }} />
+                        )} />
+                )
+
+
 
             //Private Routes - Lecturer
             const PrivateLecturerRoute = ({ component: Component, ...rest }) => (
@@ -187,6 +198,7 @@ class App extends React.Component{
                             }} />
                     )} />
             )
+
 
             //Private Routes - Student
             const PrivateStudentRoute = ({ component: Component, ...rest }) => (
@@ -256,7 +268,7 @@ class App extends React.Component{
                     <Route>
                         <Switch>
                             <LoginRoute path="/login" exact
-                                   component={Login} setAuth={this.setAuth.bind(this)}/>}/>
+                                        component={Login} setAuth={this.setAuth.bind(this)}/>}/>
                             <Route path="/register" exact component={Register}/>
                         </Switch>
                     </Route>

@@ -48,14 +48,12 @@
 
 }
 
-.table-striped {
-  text-align: center;
-
+.table-striped{
+  color: mediumblue;
+  font-size: large;
 }
 
-.iconImage {
 
-}
 
 .header {
   text-align: center;

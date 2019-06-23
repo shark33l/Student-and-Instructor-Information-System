@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {Avatar, Typography} from "@material-ui/core";
 import home from '../../images/home.jpg';
+import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
+import {Route} from "react-router-dom";
+import studentAssignmentsView from "./studentAssignmentsView";
+import studentExamsView from "./studentExamsView";
 
 // import makeStyles from "@material-ui/core/styles/makeStyles";
 //
@@ -53,7 +58,18 @@ class StudentHome extends Component {
                     </Typography>
                     </div>
                     <div className="button">
-                    <button type="submit" className="button_primary" style={{marginRight:'600px'}} onClick={()=>{this.view()}}> View </button>
+                    <button type="submit" className="button_primary" style={{marginRight:'600px'}} onClick={studentExamsView}> View </button>
+
+                        {/*<Button>*/}
+                            {/*<switch>*/}
+
+                                {/*<Link to="/studentAssignmentsView" style={{marginRight:'600px', textDecoration: "none"}}> View </Link>*/}
+                                {/*<Route path="/studentAssignmentsView" component={studentAssignmentsView}/>*/}
+
+                            {/*</switch>*/}
+                            {/*/!*<Link to="/studentAssignmentsView" style={{marginRight:'600px', textDecoration: "none"}}> View </Link>*!/*/}
+                        {/*</Button>*/}
+                        {/*onClick={()=>{this.view()}}>*/}
                     </div>
                 </div>
 
